@@ -1,0 +1,101 @@
+WANDILE NENE
+Computer Science Graduate & AI Engineer Intern
+==========================================
+
+CONTACT
+Email: wandile.nene@example.com
+Phone: +27 000 000 0000
+GitHub: github.com/wandilenene
+LinkedIn: linkedin.com/in/wandilenene
+Location: South Africa
+
+PROFESSIONAL SUMMARY
+==========================================
+Passionate Computer Science graduate and AI Engineer Intern with strong foundation in 
+software development, machine learning, and AI-driven applications. Proven ability to 
+deliver scalable and maintainable solutions at the intersection of engineering and AI.
+
+EDUCATION
+==========================================
+Bachelor of Science in Computer Science
+University of South Africa (UNISA)
+2020 - 2024 | Pass with Distinction
+
+Comprehensive degree covering software engineering, data structures, algorithms, 
+artificial intelligence, database systems, operating systems, and computer networks.
+
+PROFESSIONAL EXPERIENCE
+==========================================
+
+AI Engineer Intern
+Tech Company (AI Division) | January 2024 - Present
+- Design and implement AI pipelines using Python and modern ML frameworks
+- Integrate large language models (LLMs) into production-ready applications
+- Evaluate and benchmark model performance across diverse datasets
+- Collaborate with cross-functional teams to deliver AI-driven product features
+- Document technical implementations and create internal engineering guides
+Technologies: Python, FastAPI, LangChain, OpenAI API, PostgreSQL, Docker
+
+Computer Science Tutor
+University / Self-Employed | January 2022 - December 2024
+- Tutored students in Python, Java, and data structures
+- Created study guides and practice problems for exam preparation
+- Provided one-on-one and group tutoring sessions
+- Tracked student progress and adapted teaching methodology accordingly
+Technologies: Python, Java, Algorithms, Data Structures
+
+Software Development Bootcamp Participant
+Coding Bootcamp | June 2022 - December 2022
+- Built full-stack web applications using React and Node.js
+- Worked in agile sprints with team-based project delivery
+- Completed daily code challenges and technical assessments
+- Shipped multiple team projects following CI/CD pipelines
+Technologies: JavaScript, React, Node.js, HTML, CSS, Git
+
+TECHNICAL SKILLS
+==========================================
+Languages: Python, JavaScript, TypeScript, Java, C#, SQL
+Frameworks: FastAPI, React, Node.js, Next.js, ASP.NET
+AI/ML: LangChain, OpenAI API, Scikit-learn, TensorFlow, Prompt Engineering
+Databases: PostgreSQL, SQLite, MongoDB
+Tools & DevOps: Git, Docker, GitHub Actions, Linux
+
+CERTIFICATIONS
+==========================================
+- AI Engineer Professional Certificate
+  Coursera / deeplearning.ai | June 2024
+  
+- Python for Data Science and Machine Learning
+  Udemy | September 2023
+  
+- Full Stack Web Development Bootcamp
+  Coding Bootcamp | December 2022
+
+ACHIEVEMENTS
+==========================================
+- Academic Commendation — Dean's List (2023)
+- AI Engineer Hackathon — Top 10 Finalist (2024)
+- Excellence in Peer Tutoring (2023)
+- Bootcamp Top Graduate (2022)
+
+PROJECTS
+==========================================
+AI Portfolio Assistant | In Progress | Featured
+An LLM-powered chatbot that answers recruiter questions about portfolio content.
+Technologies: Python, FastAPI, LangChain, OpenAI API, React, SQLite
+
+Portfolio REST API | Completed | Featured
+Production-grade REST API serving structured portfolio data with full CRUD operations.
+Technologies: Python, FastAPI, SQLAlchemy, Pydantic, SQLite, Uvicorn
+
+Smart Task Manager | Completed
+Full-stack task management app with AI-powered prioritization.
+Technologies: React, TypeScript, FastAPI, Python, PostgreSQL, OpenAI API
+
+Sentiment Analysis Dashboard | Completed
+Real-time sentiment analysis tool for social media text streams.
+Technologies: Python, Scikit-learn, Transformers, FastAPI, React, Chart.js
+
+==========================================
+This is a sample resume for Portfolio API demonstration.
+Generated: 2024

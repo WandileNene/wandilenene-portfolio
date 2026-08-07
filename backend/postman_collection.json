@@ -1,0 +1,447 @@
+{
+  "info": {
+    "_postman_id": "portfolio-api-v1",
+    "name": "Portfolio API - Wandile Nene",
+    "description": "Complete REST API collection for the Portfolio backend. Covers all CRUD operations for Profile, Education, Experience, Skills, Certifications, Projects, Achievements, Contact, and the Summary endpoint.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8000", "type": "string" },
+    { "key": "apiVersion", "value": "api/v1", "type": "string" }
+  ],
+  "item": [
+    {
+      "name": "🏥 Health",
+      "item": [
+        {
+          "name": "Root - API Info",
+          "request": { "method": "GET", "url": "{{baseUrl}}/", "description": "Returns API name, version, environment, and links to docs." }
+        },
+        {
+          "name": "Health Check",
+          "request": { "method": "GET", "url": "{{baseUrl}}/health", "description": "Returns 200 OK if the server is running." }
+        }
+      ]
+    },
+    {
+      "name": "📋 Summary",
+      "item": [
+        {
+          "name": "Get Full Portfolio Summary",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/{{apiVersion}}/summary/",
+            "description": "Single endpoint that returns the complete portfolio data in one JSON response. Use this for the frontend initial load."
+          }
+        }
+      ]
+    },
+    {
+      "name": "👤 Profile",
+      "item": [
+        {
+          "name": "GET Profile",
+          "request": { "method": "GET", "url": "{{baseUrl}}/{{apiVersion}}/profile/", "description": "Returns the portfolio owner's full profile." }
+        },
+        {
+          "name": "POST Create Profile",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/{{apiVersion}}/profile/",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"full_name\": \"Wandile Nene\",\n  \"title\": \"Computer Science Graduate & AI Engineer Intern\",\n  \"tagline\": \"Building intelligent solutions at the intersection of Software Engineering and AI.\",\n  \"bio\": \"Passionate CS graduate with a focus on AI-driven software development.\",\n  \"email\": \"wandile.nene@example.com\",\n  \"phone\": \"+27 000 000 0000\",\n  \"location\": \"South Africa\",\n  \"github_url\": \"https://github.com/wandilenene\",\n  \"linkedin_url\": \"https://linkedin.com/in/wandilenene\"\n}"
+            }
+          }
+        },
+        {
+          "name": "PATCH Update Profile",
+          "request": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/{{apiVersion}}/profile/",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Senior AI Engineer\",\n  \"tagline\": \"Updated tagline here.\"\n}"
+            }
+          }
+        },
+        {
+          "name": "DELETE Profile",
+          "request": { "method": "DELETE", "url": "{{baseUrl}}/{{apiVersion}}/profile/" }
+        }
+      ]
+    },
+    {
+      "name": "🎓 Education",
+      "item": [
+        {
+          "name": "GET All Education",
+          "request": { "method": "GET", "url": "{{baseUrl}}/{{apiVersion}}/education/" }
+        },
+        {
+          "name": "GET Education by ID",
+          "request": { "method": "GET", "url": "{{baseUrl}}/{{apiVersion}}/education/1" }
+        },
+        {
+          "name": "POST Create Education",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/{{apiVersion}}/education/",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"degree\": \"Bachelor of Science\",\n  \"field_of_study\": \"Computer Science\",\n  \"institution\": \"University of South Africa (UNISA)\",\n  \"location\": \"South Africa\",\n  \"start_date\": \"2020\",\n  \"end_date\": \"2024\",\n  \"grade\": \"Pass with Distinction\",\n  \"description\": \"Comprehensive CS degree covering algorithms, AI, databases, and software engineering.\",\n  \"is_current\": false,\n  \"order\": 0\n}"
+            }
+          }
+        },
+        {
+          "name": "PATCH Update Education",
+          "request": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/{{apiVersion}}/education/1",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"grade\": \"Cum Laude\"\n}" }
+          }
+        },
+        {
+          "name": "DELETE Education",
+          "request": { "method": "DELETE", "url": "{{baseUrl}}/{{apiVersion}}/education/1" }
+        }
+      ]
+    },
+    {
+      "name": "💼 Experience",
+      "item": [
+        {
+          "name": "GET All Experience",
+          "request": { "method": "GET", "url": "{{baseUrl}}/{{apiVersion}}/experience/" }
+        },
+        {
+          "name": "GET Current Experience Only",
+          "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/{{apiVersion}}/experience/?is_current=true", "query": [{ "key": "is_current", "value": "true" }] } }
+        },
+        {
+          "name": "GET Filter by Employment Type",
+          "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/{{apiVersion}}/experience/?employment_type=Internship", "query": [{ "key": "employment_type", "value": "Internship" }] } }
+        },
+        {
+          "name": "GET Experience by ID",
+          "request": { "method": "GET", "url": "{{baseUrl}}/{{apiVersion}}/experience/1" }
+        },
+        {
+          "name": "POST Create Experience",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/{{apiVersion}}/experience/",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"AI Engineer Intern\",\n  \"company\": \"Tech Company\",\n  \"location\": \"South Africa\",\n  \"employment_type\": \"Internship\",\n  \"start_date\": \"2024-01\",\n  \"end_date\": null,\n  \"is_current\": true,\n  \"description\": \"Working on AI-powered applications.\",\n  \"responsibilities\": [\"Build AI pipelines\", \"Integrate LLMs\", \"Evaluate model performance\"],\n  \"technologies\": [\"Python\", \"FastAPI\", \"LangChain\"],\n  \"order\": 0\n}"
+            }
+          }
+        },
+        {
+          "name": "PATCH Update Experience",
+          "request": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/{{apiVersion}}/experience/1",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"description\": \"Updated description for the role.\"\n}" }
+          }
+        },
+        {
+          "name": "DELETE Experience",
+          "request": { "method": "DELETE", "url": "{{baseUrl}}/{{apiVersion}}/experience/1" }
+        }
+      ]
+    },
+    {
+      "name": "🛠️ Skills",
+      "item": [
+        {
+          "name": "GET All Skills",
+          "request": { "method": "GET", "url": "{{baseUrl}}/{{apiVersion}}/skills/" }
+        },
+        {
+          "name": "GET Skills Grouped by Category",
+          "request": { "method": "GET", "url": "{{baseUrl}}/{{apiVersion}}/skills/grouped", "description": "Returns skills as a dictionary organized by category. Ideal for the UI." }
+        },
+        {
+          "name": "GET All Skill Categories",
+          "request": { "method": "GET", "url": "{{baseUrl}}/{{apiVersion}}/skills/categories" }
+        },
+        {
+          "name": "GET Filter Skills by Category",
+          "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/{{apiVersion}}/skills/?category=Languages", "query": [{ "key": "category", "value": "Languages" }] } }
+        },
+        {
+          "name": "GET Skill by ID",
+          "request": { "method": "GET", "url": "{{baseUrl}}/{{apiVersion}}/skills/1" }
+        },
+        {
+          "name": "POST Create Skill",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/{{apiVersion}}/skills/",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Rust\",\n  \"category\": \"Languages\",\n  \"proficiency\": 45,\n  \"icon\": \"rust\",\n  \"order\": 10\n}" }
+          }
+        },
+        {
+          "name": "PATCH Update Skill",
+          "request": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/{{apiVersion}}/skills/1",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"proficiency\": 95\n}" }
+          }
+        },
+        {
+          "name": "DELETE Skill",
+          "request": { "method": "DELETE", "url": "{{baseUrl}}/{{apiVersion}}/skills/1" }
+        }
+      ]
+    },
+    {
+      "name": "🏅 Certifications",
+      "item": [
+        {
+          "name": "GET All Certifications",
+          "request": { "method": "GET", "url": "{{baseUrl}}/{{apiVersion}}/certifications/" }
+        },
+        {
+          "name": "GET Certification by ID",
+          "request": { "method": "GET", "url": "{{baseUrl}}/{{apiVersion}}/certifications/1" }
+        },
+        {
+          "name": "POST Create Certification",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/{{apiVersion}}/certifications/",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"AWS Cloud Practitioner\",\n  \"issuing_organization\": \"Amazon Web Services\",\n  \"issue_date\": \"2024-03\",\n  \"expiry_date\": \"2027-03\",\n  \"credential_id\": \"AWS-CP-2024\",\n  \"credential_url\": \"https://aws.amazon.com/verify/AWS-CP-2024\",\n  \"description\": \"Foundational cloud computing certification.\",\n  \"order\": 3\n}" }
+          }
+        },
+        {
+          "name": "PATCH Update Certification",
+          "request": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/{{apiVersion}}/certifications/1",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"expiry_date\": \"2027-06\"\n}" }
+          }
+        },
+        {
+          "name": "DELETE Certification",
+          "request": { "method": "DELETE", "url": "{{baseUrl}}/{{apiVersion}}/certifications/1" }
+        }
+      ]
+    },
+    {
+      "name": "🚀 Projects",
+      "item": [
+        {
+          "name": "GET All Projects",
+          "request": { "method": "GET", "url": "{{baseUrl}}/{{apiVersion}}/projects/" }
+        },
+        {
+          "name": "GET Featured Projects Only",
+          "request": { "method": "GET", "url": "{{baseUrl}}/{{apiVersion}}/projects/featured", "description": "Returns only projects marked as is_featured=true." }
+        },
+        {
+          "name": "GET Filter by Status (completed)",
+          "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/{{apiVersion}}/projects/?status=completed", "query": [{ "key": "status", "value": "completed" }] } }
+        },
+        {
+          "name": "GET Filter by Status (in-progress)",
+          "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/{{apiVersion}}/projects/?status=in-progress", "query": [{ "key": "status", "value": "in-progress" }] } }
+        },
+        {
+          "name": "GET Project by ID",
+          "request": { "method": "GET", "url": "{{baseUrl}}/{{apiVersion}}/projects/1" }
+        },
+        {
+          "name": "GET Project by Slug",
+          "request": { "method": "GET", "url": "{{baseUrl}}/{{apiVersion}}/projects/slug/portfolio-rest-api" }
+        },
+        {
+          "name": "POST Create Project",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/{{apiVersion}}/projects/",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"AI Resume Parser\",\n  \"slug\": \"ai-resume-parser\",\n  \"short_description\": \"An NLP-based tool that extracts structured data from resume PDFs.\",\n  \"description\": \"Uses spaCy and custom NER models to parse resumes into structured JSON.\",\n  \"technologies\": [\"Python\", \"spaCy\", \"FastAPI\", \"React\"],\n  \"features\": [\"PDF text extraction\", \"Named entity recognition\", \"JSON output\", \"REST API\"],\n  \"github_url\": \"https://github.com/wandilenene/ai-resume-parser\",\n  \"demo_url\": null,\n  \"status\": \"completed\",\n  \"is_featured\": false,\n  \"order\": 5\n}" }
+          }
+        },
+        {
+          "name": "PATCH Update Project",
+          "request": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/{{apiVersion}}/projects/1",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"is_featured\": true,\n  \"status\": \"completed\"\n}" }
+          }
+        },
+        {
+          "name": "DELETE Project",
+          "request": { "method": "DELETE", "url": "{{baseUrl}}/{{apiVersion}}/projects/1" }
+        }
+      ]
+    },
+    {
+      "name": "🏆 Achievements",
+      "item": [
+        {
+          "name": "GET All Achievements",
+          "request": { "method": "GET", "url": "{{baseUrl}}/{{apiVersion}}/achievements/" }
+        },
+        {
+          "name": "GET Achievement by ID",
+          "request": { "method": "GET", "url": "{{baseUrl}}/{{apiVersion}}/achievements/1" }
+        },
+        {
+          "name": "POST Create Achievement",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/{{apiVersion}}/achievements/",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"title\": \"Best Final Year Project\",\n  \"issuer\": \"Computer Science Department\",\n  \"date\": \"2024\",\n  \"description\": \"Awarded for the best final year project in the graduating class.\",\n  \"icon\": \"trophy\",\n  \"order\": 4\n}" }
+          }
+        },
+        {
+          "name": "PATCH Update Achievement",
+          "request": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/{{apiVersion}}/achievements/1",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"description\": \"Updated achievement description.\"\n}" }
+          }
+        },
+        {
+          "name": "DELETE Achievement",
+          "request": { "method": "DELETE", "url": "{{baseUrl}}/{{apiVersion}}/achievements/1" }
+        }
+      ]
+    },
+    {
+      "name": "📬 Contact",
+      "item": [
+        {
+          "name": "POST Send Contact Message",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/{{apiVersion}}/contact/",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Jane Recruiter\",\n  \"email\": \"jane.recruiter@techcorp.com\",\n  \"subject\": \"Software Engineer Role - Opportunity\",\n  \"message\": \"Hi Wandile, I came across your portfolio and I am impressed by your AI engineering background. We have an open Software Engineer role at TechCorp. Would you be interested in a chat?\"\n}" }
+          }
+        },
+        {
+          "name": "GET All Messages (Admin)",
+          "request": { "method": "GET", "url": "{{baseUrl}}/{{apiVersion}}/contact/messages/" }
+        },
+        {
+          "name": "GET Unread Messages Only",
+          "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/{{apiVersion}}/contact/messages/?is_read=false", "query": [{ "key": "is_read", "value": "false" }] } }
+        },
+        {
+          "name": "GET Message by ID",
+          "request": { "method": "GET", "url": "{{baseUrl}}/{{apiVersion}}/contact/messages/1" }
+        },
+        {
+          "name": "PATCH Mark Message as Read",
+          "request": { "method": "PATCH", "url": "{{baseUrl}}/{{apiVersion}}/contact/messages/1/read" }
+        },
+        {
+          "name": "DELETE Message",
+          "request": { "method": "DELETE", "url": "{{baseUrl}}/{{apiVersion}}/contact/messages/1" }
+        }
+      ]
+    },
+    {
+      "name": "📄 Resume",
+      "item": [
+        {
+          "name": "POST Upload Resume",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/{{apiVersion}}/resume/upload",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": "",
+                  "description": "Select your resume PDF or DOCX file"
+                },
+                {
+                  "key": "version",
+                  "value": "v2024.08",
+                  "type": "text",
+                  "description": "Version label (optional)"
+                },
+                {
+                  "key": "description",
+                  "value": "Latest resume with AI Engineer experience",
+                  "type": "text",
+                  "description": "Description (optional)"
+                }
+              ]
+            },
+            "description": "Upload a resume file. Max 10MB. Only PDF and DOCX allowed. The new upload becomes the active resume."
+          }
+        },
+        {
+          "name": "GET Active Resume Metadata",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/{{apiVersion}}/resume/",
+            "description": "Returns metadata (filename, size, version) of the currently active resume."
+          }
+        },
+        {
+          "name": "GET All Resume Versions",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/{{apiVersion}}/resume/all",
+            "description": "Returns metadata for all uploaded resume versions."
+          }
+        },
+        {
+          "name": "GET Download Active Resume",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/{{apiVersion}}/resume/download",
+            "description": "Downloads the currently active resume file. Opens as download in browser."
+          }
+        },
+        {
+          "name": "GET Download Resume by ID",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/{{apiVersion}}/resume/download/1",
+            "description": "Downloads a specific resume version by its ID."
+          }
+        },
+        {
+          "name": "PATCH Activate Resume",
+          "request": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/{{apiVersion}}/resume/1/activate",
+            "description": "Makes resume with ID 1 the active resume. All others become inactive."
+          }
+        },
+        {
+          "name": "DELETE Resume",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/{{apiVersion}}/resume/1",
+            "description": "Deletes a resume version and its file from the server."
+          }
+        }
+      ]
+    }
+  ]
+}

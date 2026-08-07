@@ -1,0 +1,28 @@
+.badge {
+  display: inline-block;
+  padding: var(--spacing-1) var(--spacing-3);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  transition: all var(--transition-fast);
+}
+
+.default {
+  background-color: rgba(29, 78, 216, 0.1);
+  color: var(--color-secondary);
+}
+
+.accent {
+  background-color: rgba(20, 184, 166, 0.1);
+  color: var(--color-accent);
+}
+
+.muted {
+  background-color: rgba(100, 116, 139, 0.1);
+  color: var(--color-text-muted);
+}
+
+.badge:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
