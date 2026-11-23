@@ -107,6 +107,38 @@
   font-weight: 600;
 }
 
+/* Right-side controls wrapper */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  flex-shrink: 0;
+}
+
+/* Theme toggle button */
+.themeBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  flex-shrink: 0;
+}
+
+.themeBtn:hover {
+  color: var(--color-secondary);
+  border-color: var(--color-secondary);
+  background: var(--color-hover);
+  box-shadow: var(--shadow-glow);
+  transform: rotate(15deg) scale(1.05);
+}
+
 /* Mobile */
 .menuBtn {
   display: none;

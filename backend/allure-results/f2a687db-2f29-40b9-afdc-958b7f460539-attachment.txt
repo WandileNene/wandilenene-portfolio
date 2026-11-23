@@ -1,0 +1,16 @@
+[35mDEBUG   [0m ExperienceClient:base_client.py:89 POST http://localhost:8000/experience
+[35mDEBUG   [0m ExperienceClient:base_client.py:91 Payload: {
+  "company": "Tech Company",
+  "position": "Software Engineer",
+  "employment_type": "Full-time",
+  "location": "Johannesburg",
+  "start_date": "2020-01-01",
+  "end_date": "2023-12-31",
+  "description": "Developed web applications",
+  "skills": [
+    "Python",
+    "JavaScript",
+    "React"
+  ]
+}
+[35mDEBUG   [0m urllib3.connectionpool:connectionpool.py:241 Starting new HTTP connection (1): localhost:8000

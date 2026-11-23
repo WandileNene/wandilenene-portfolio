@@ -17,7 +17,7 @@ async function handleResponse<T>(response: Response): Promise<T> {
   return response.json()
 }
 
-export const api = {
+export const portfolioAPI = {
   /**
    * Fetches the complete portfolio summary in a single request.
    * This is the primary endpoint for initial page load.
@@ -46,5 +46,8 @@ export const api = {
     return `${API_BASE}/resume/download`
   },
 }
+
+// Backward compatibility
+export const api = portfolioAPI
 
 export { APIError }

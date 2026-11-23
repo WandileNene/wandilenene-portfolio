@@ -1,0 +1,17 @@
+[35mDEBUG   [0m ProjectClient:base_client.py:89 POST http://localhost:8000/projects
+[35mDEBUG   [0m ProjectClient:base_client.py:91 Payload: {
+  "title": "Portfolio Website",
+  "slug": "portfolio-website",
+  "description": "Personal portfolio website built with React",
+  "technologies": [
+    "React",
+    "TypeScript",
+    "FastAPI"
+  ],
+  "start_date": "2023-06-01",
+  "end_date": "2023-12-31",
+  "github_url": "https://github.com/example/portfolio",
+  "live_url": "https://portfolio.example.com",
+  "featured": true
+}
+[35mDEBUG   [0m urllib3.connectionpool:connectionpool.py:241 Starting new HTTP connection (1): localhost:8000

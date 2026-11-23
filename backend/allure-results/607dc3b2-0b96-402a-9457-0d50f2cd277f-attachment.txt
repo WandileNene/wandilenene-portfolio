@@ -1,0 +1,5 @@
+[35mDEBUG   [0m ContactClient:base_client.py:89 PATCH http://localhost:8000/contact/1
+[35mDEBUG   [0m ContactClient:base_client.py:91 Payload: {
+  "is_read": true
+}
+[35mDEBUG   [0m urllib3.connectionpool:connectionpool.py:241 Starting new HTTP connection (1): localhost:8000

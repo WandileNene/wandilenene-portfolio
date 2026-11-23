@@ -4,6 +4,7 @@ import { Hero } from './components/Hero/Hero'
 import { LoadingSpinner } from './components/shared/LoadingSpinner'
 import { SectionHeader } from './components/shared/SectionHeader'
 import { Badge } from './components/shared/Badge'
+import { ContactForm } from './components/Contact/ContactForm'
 import './styles/global.css'
 
 function App() {
@@ -528,22 +529,127 @@ function App() {
           </div>
         </section>
 
+        {/* Contact Section */}
         <section id="contact" className="section">
           <div className="container">
-            <h2>Contact</h2>
-            <p>Email: {data.profile.email}</p>
-            <p>Location: {data.profile.location}</p>
+            <SectionHeader title="Get In Touch" subtitle="Have a question or want to work together?" />
+
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: '1fr 2fr',
+              gap: 'var(--spacing-10)',
+              maxWidth: '1000px',
+              margin: '0 auto',
+              alignItems: 'start',
+            }}>
+              {/* Left — contact info */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-5)' }}>
+                {[
+                  {
+                    icon: (
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    ),
+                    label: 'Email',
+                    value: data.profile.email,
+                    href: `mailto:${data.profile.email}`,
+                  },
+                  {
+                    icon: (
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.3 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.49 5.49l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 15.5v1.42z"/></svg>
+                    ),
+                    label: 'Phone',
+                    value: data.profile.phone,
+                    href: `tel:${data.profile.phone}`,
+                  },
+                  {
+                    icon: (
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    ),
+                    label: 'Location',
+                    value: data.profile.location,
+                    href: undefined,
+                  },
+                  ...(data.profile.linkedin_url ? [{
+                    icon: (
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                    ),
+                    label: 'LinkedIn',
+                    value: 'linkedin.com/in/wandie-nene',
+                    href: data.profile.linkedin_url,
+                  }] : []),
+                ].map(({ icon, label, value, href }) => (
+                  <div key={label} style={{
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    gap: 'var(--spacing-4)',
+                    padding: 'var(--spacing-4)',
+                    background: 'var(--color-surface)',
+                    border: '1px solid var(--color-border)',
+                    borderRadius: 'var(--radius-xl)',
+                    transition: 'all 0.2s',
+                  }}
+                  onMouseEnter={e => {
+                    (e.currentTarget as HTMLDivElement).style.borderColor = 'var(--color-secondary)'
+                    ;(e.currentTarget as HTMLDivElement).style.boxShadow = 'var(--shadow-glow)'
+                  }}
+                  onMouseLeave={e => {
+                    (e.currentTarget as HTMLDivElement).style.borderColor = 'var(--color-border)'
+                    ;(e.currentTarget as HTMLDivElement).style.boxShadow = 'none'
+                  }}>
+                    <div style={{
+                      flexShrink: 0,
+                      width: '40px',
+                      height: '40px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      background: 'rgba(99,102,241,0.1)',
+                      borderRadius: 'var(--radius-lg)',
+                      color: 'var(--color-secondary)',
+                    }}>{icon}</div>
+                    <div>
+                      <div style={{ fontSize: 'var(--text-xs)', color: 'var(--color-text-muted)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '2px' }}>{label}</div>
+                      {href ? (
+                        <a href={href} target={href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer"
+                          style={{ color: 'var(--color-text)', fontWeight: 500, fontSize: 'var(--text-sm)', wordBreak: 'break-all', textDecoration: 'none' }}
+                          onMouseEnter={e => (e.currentTarget.style.color = 'var(--color-secondary)')}
+                          onMouseLeave={e => (e.currentTarget.style.color = 'var(--color-text)')}
+                        >{value}</a>
+                      ) : (
+                        <span style={{ color: 'var(--color-text)', fontWeight: 500, fontSize: 'var(--text-sm)' }}>{value}</span>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Right — form */}
+              <div style={{
+                background: 'var(--color-surface)',
+                border: '1px solid var(--color-border)',
+                borderRadius: 'var(--radius-xl)',
+                padding: 'var(--spacing-8)',
+                boxShadow: 'var(--shadow-lg)',
+              }}>
+                <h3 style={{ fontSize: 'var(--text-xl)', fontWeight: 700, marginBottom: 'var(--spacing-6)', color: 'var(--color-text)' }}>
+                  Send me a message
+                </h3>
+                <ContactForm />
+              </div>
+            </div>
           </div>
         </section>
       </main>
 
       <footer style={{
         background: 'var(--color-primary)',
-        color: 'white',
-        padding: '2rem',
-        textAlign: 'center'
+        borderTop: '1px solid var(--color-border)',
+        padding: 'var(--spacing-8) var(--spacing-6)',
+        textAlign: 'center',
       }}>
-        <p>© 2024 {data.profile.full_name}. All rights reserved.</p>
+        <p style={{ color: 'var(--color-text-muted)', fontSize: 'var(--text-sm)' }}>
+          © {new Date().getFullYear()} {data.profile.full_name}. Built with React &amp; FastAPI.
+        </p>
       </footer>
     </>
   )

@@ -79,6 +79,31 @@
   --section-spacing: var(--spacing-20);
 }
 
+/* ─── Light Theme ─────────────────────────────────────────────────────────── */
+[data-theme="light"] {
+  --color-primary: #FFFFFF;
+  --color-secondary: #4F46E5;
+  --color-accent: #059669;
+  --color-background: #F1F5F9;
+  --color-surface: #FFFFFF;
+  --color-surface-elevated: #F8FAFC;
+  --color-text: #0F172A;
+  --color-text-muted: #475569;
+  --color-border: #CBD5E1;
+  --color-hover: #E2E8F0;
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.06);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.08);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.12);
+  --shadow-glow: 0 0 20px rgba(79, 70, 229, 0.2);
+  --shadow-glow-accent: 0 0 20px rgba(5, 150, 105, 0.2);
+
+  --gradient-primary: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+  --gradient-accent: linear-gradient(135deg, #059669 0%, #0D9488 100%);
+  --gradient-dark: linear-gradient(180deg, #F1F5F9 0%, #FFFFFF 100%);
+}
+
 @media (max-width: 768px) {
   :root {
     --text-3xl: 1.5rem;

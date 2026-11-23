@@ -1,0 +1,11 @@
+[35mDEBUG   [0m ProfileClient:base_client.py:89 POST http://localhost:8000/profile
+[35mDEBUG   [0m ProfileClient:base_client.py:91 Payload: {
+  "first_name": "Wandile",
+  "last_name": "Nene",
+  "phone": "+27 123 456 7890",
+  "location": "Johannesburg, South Africa",
+  "bio": "Senior Software Engineer",
+  "photo_url": "https://example.com/photo.jpg",
+  "cv_url": "https://example.com/cv.pdf"
+}
+[35mDEBUG   [0m urllib3.connectionpool:connectionpool.py:241 Starting new HTTP connection (1): localhost:8000

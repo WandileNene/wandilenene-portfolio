@@ -1,10 +1,13 @@
 from fastapi import APIRouter, Depends, HTTPException, status, Query
 from sqlalchemy.orm import Session
 from typing import List, Optional
+import logging
 from app.database import get_db
 from app.models import ContactMessage
 from app.schemas import ContactMessageCreate, ContactMessageResponse, MessageResponse
+from app.email_service import email_service
 
+logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/contact", tags=["Contact"])
 
 
@@ -13,13 +16,27 @@ router = APIRouter(prefix="/contact", tags=["Contact"])
     response_model=ContactMessageResponse,
     status_code=status.HTTP_201_CREATED,
     summary="Send Contact Message",
-    description="Submits a contact form message from a visitor. Returns the saved message with its ID.",
+    description="Submits a contact form message from a visitor. Saves to database and sends email notification if configured.",
 )
 def send_message(payload: ContactMessageCreate, db: Session = Depends(get_db)):
+    # Save to database first
     message = ContactMessage(**payload.model_dump())
     db.add(message)
     db.commit()
     db.refresh(message)
+    
+    # Try to send email notification
+    try:
+        email_service.send_contact_email(
+            name=payload.name,
+            email=payload.email,
+            message=payload.message,
+            subject=payload.subject
+        )
+    except Exception as e:
+        logger.error(f"Failed to send email notification: {str(e)}")
+        # Continue even if email fails - message is already saved
+    
     return message
 
 

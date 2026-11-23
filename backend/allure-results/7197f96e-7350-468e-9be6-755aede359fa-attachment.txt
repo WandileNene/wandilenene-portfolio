@@ -1,0 +1,7 @@
+[35mDEBUG   [0m ContactClient:base_client.py:89 POST http://localhost:8000/contact
+[35mDEBUG   [0m ContactClient:base_client.py:91 Payload: {
+  "email": "john@example.com",
+  "subject": "Collaboration Inquiry",
+  "message": "I'm interested in collaborating on a project."
+}
+[35mDEBUG   [0m urllib3.connectionpool:connectionpool.py:241 Starting new HTTP connection (1): localhost:8000

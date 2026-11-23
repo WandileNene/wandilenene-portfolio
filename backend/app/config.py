@@ -1,5 +1,5 @@
 from pydantic_settings import BaseSettings
-from typing import List
+from typing import List, Optional
 
 
 class Settings(BaseSettings):
@@ -23,6 +23,20 @@ class Settings(BaseSettings):
     secret_key: str = "portfolio-dev-secret-key"
     algorithm: str = "HS256"
     access_token_expire_minutes: int = 30
+
+    # Email Configuration
+    mail_enabled: bool = False  # Set to True when email is configured
+    mail_from: str = "noreply@portfolio.com"
+    mail_from_name: str = "Portfolio Contact Form"
+    mail_to: Optional[str] = None  # Your email address to receive contact form messages
+    
+    # SMTP Settings
+    smtp_host: Optional[str] = None  # e.g., "smtp.gmail.com"
+    smtp_port: int = 587
+    smtp_username: Optional[str] = None
+    smtp_password: Optional[str] = None
+    smtp_tls: bool = True
+    smtp_ssl: bool = False
 
     @property
     def cors_origins_list(self) -> List[str]:

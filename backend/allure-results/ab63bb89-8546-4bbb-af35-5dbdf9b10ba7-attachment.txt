@@ -1,0 +1,10 @@
+[35mDEBUG   [0m EducationClient:base_client.py:89 POST http://localhost:8000/education
+[35mDEBUG   [0m EducationClient:base_client.py:91 Payload: {
+  "degree": "Bachelor of Science",
+  "field_of_study": "Computer Science",
+  "start_date": "2015-01-01",
+  "end_date": "2019-12-31",
+  "grade": "3.8",
+  "description": "Specialized in software engineering"
+}
+[35mDEBUG   [0m urllib3.connectionpool:connectionpool.py:241 Starting new HTTP connection (1): localhost:8000
