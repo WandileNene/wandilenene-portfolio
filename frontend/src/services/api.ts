@@ -1,6 +1,10 @@
 import type { PortfolioSummary, ContactMessagePayload } from '../types/api'
 
-const API_BASE = '/api/v1'
+// In production (Vercel), VITE_API_BASE_URL is set to the Render backend URL.
+// In local dev, it falls back to a relative path so the Vite proxy handles it.
+const API_BASE = import.meta.env.VITE_API_BASE_URL
+  ? `${import.meta.env.VITE_API_BASE_URL}/api/v1`
+  : '/api/v1'
 
 class APIError extends Error {
   constructor(public status: number, message: string) {

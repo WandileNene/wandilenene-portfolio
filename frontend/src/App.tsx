@@ -29,7 +29,7 @@ function App() {
           padding: '0.25rem 0.5rem', 
           borderRadius: '4px',
           color: 'var(--color-accent)'
-        }}>http://localhost:8000</code>
+        }}>{import.meta.env.VITE_API_BASE_URL || 'the backend API'}</code>
       </p>
     </div>
   )
@@ -498,7 +498,7 @@ function App() {
               }}>
                 Download my complete resume with detailed information about my experience, education, and skills.
               </p>
-              <a href="http://localhost:8000/api/v1/resume/download" download style={{
+              <a href={`${import.meta.env.VITE_API_BASE_URL || ''}/api/v1/resume/download`} download style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: 'var(--spacing-2)',
